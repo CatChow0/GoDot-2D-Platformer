@@ -45,6 +45,6 @@ func _physics_process(delta):
 func hurt() -> void:
 	if life > 1:
 		life -= 1
-		animated_sprite_2d.play("running")
+		animated_sprite_2d.play("hurt")
 	else :
 		animated_sprite_2d.play("running")
