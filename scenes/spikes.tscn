@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://byepv46pl1spt"]
+
+[ext_resource type="Texture2D" uid="uid://8o6co8tg2jxg" path="res://assets/enemy/spike/Idle.png" id="1_3pv2c"]
+[ext_resource type="Script" path="res://scenes/spikes.gd" id="1_4scrd"]
+
+[node name="Spikes" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_4scrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_3pv2c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 0)
+texture = ExtResource("1_3pv2c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.0868053, 0)
+scale = Vector2(1.00694, 1)
+polygon = PackedVector2Array(-8.03103, 8, 22.7552, 8, 22.7552, 6, 21.7621, 4, 20.769, 2, 19.7759, 1, 18.7828, 1, 17.7897, 2, 16.7966, 4, 15.8034, 6, 14.8103, 6, 13.8172, 4, 12.8241, 2, 11.831, 1, 10.8379, 1, 9.84483, 2, 8.85172, 4, 7.85862, 6, 6.86552, 6, 5.87241, 4, 4.87931, 2, 3.88621, 1, 2.8931, 1, 1.9, 2, 0.906897, 4, -0.0862067, 6, -1.07931, 6, -2.07241, 4, -3.06552, 2, -4.05862, 1, -5.05172, 1, -6.04483, 2, -7.03793, 4, -8.03103, 6)
+
+[connection signal="body_entered" from="." to="." method="_on_Spikes_body_entered"]

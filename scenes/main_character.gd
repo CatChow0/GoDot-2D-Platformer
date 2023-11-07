@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
@@ -40,6 +41,10 @@ func _physics_process(delta):
 	var isLeft = velocity.x < 0
 	animated_sprite_2d.flip_h = isLeft
 	
-func hurt () :
-	life -= 1
-	animated_sprite_2d.play("hurt")
+	
+func hurt() -> void:
+	if life > 1:
+		life -= 1
+		animated_sprite_2d.play("running")
+	else :
+		animated_sprite_2d.play("running")
