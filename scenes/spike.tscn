@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://p8jsu3vyai1l"]
+
+[ext_resource type="Texture2D" uid="uid://8o6co8tg2jxg" path="res://assets/enemy/spike/Idle.png" id="1_fslga"]
+[ext_resource type="Script" path="res://scenes/spike.gd" id="1_taoxl"]
+
+[node name="CharacterBody2D2" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_taoxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fslga")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, -1.07189, 8, 7, 8, 7, 6, 5, 2, 4, 1, 3, 1, 2, 2, 1, 4, 0, 6, 0, 8, -1, 8, -1, 6, -2, 4, -3, 2, -4, 1, -5, 1, -6, 2, -7, 4, -8, 6)
