@@ -251,9 +251,13 @@ script = ExtResource("1_6kvwi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_v5hjh")
-animation = &"hurt"
 autoplay = "default"
+frame_progress = 0.159032
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_oeh25")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 20.0
+drag_horizontal_enabled = true

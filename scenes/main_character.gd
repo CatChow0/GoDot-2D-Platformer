@@ -4,19 +4,19 @@ class_name Player
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
-const max_life = 3
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-#current life
-var life = max_life
+var spawn_position = Vector2(0,0)
+
+func _ready():
+	spawn_position = global_position
 
 func _physics_process(delta):
 	if (velocity.x > 1 || velocity.x < -1):
 		animated_sprite_2d.animation = "running"
-	else :
+	else:
 		animated_sprite_2d.animation = "default"
 	
 	# Add the gravity.
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		animated_sprite_2d.animation = "jumping"
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -41,10 +41,6 @@ func _physics_process(delta):
 	var isLeft = velocity.x < 0
 	animated_sprite_2d.flip_h = isLeft
 	
-	
-func hurt() -> void:
-	if life > 1:
-		life -= 1
-		animated_sprite_2d.play("hurt")
-	else :
-		animated_sprite_2d.play("running")
+#Respawn le player a chaque mort sans recharger la scene
+func hurt() :
+	global_position = spawn_position
