@@ -1,7 +1,4 @@
 extends Button
 
-var scene = preload("res://scenes/main.tscn")
-var instance = scene.instantiate()
-
 func _on_pressed():
-	add_child(instance)
+	get_tree().change_scene_to_file("res://scenes/level/level1.tscn")

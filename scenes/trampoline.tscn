@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://dh66c57r6xtro"]
+
+[ext_resource type="Texture2D" uid="uid://cmqq313p0irfh" path="res://assets/Special/Trampoline/Jump (28x28).png" id="1_yxiin"]
+[ext_resource type="Texture2D" uid="uid://bbwo1vnv50dvw" path="res://assets/Special/Trampoline/Idle.png" id="2_srl7v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tggmm"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmjcr"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(28, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fygt"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(56, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70sun"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(84, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjdr7"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(112, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke3gx"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(140, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1xpu"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(168, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny0yo"]
+atlas = ExtResource("1_yxiin")
+region = Rect2(196, 0, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hod7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tggmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmjcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fygt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70sun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjdr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke3gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1xpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny0yo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_srl7v")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hod7m")
+animation = &"new_animation"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
