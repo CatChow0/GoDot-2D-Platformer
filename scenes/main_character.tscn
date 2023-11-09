@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://c4qk2h31p8h4s"]
+[gd_scene load_steps=39 format=3 uid="uid://c4qk2h31p8h4s"]
 
 [ext_resource type="Script" path="res://scenes/main_character.gd" id="1_6kvwi"]
 [ext_resource type="Texture2D" uid="uid://m25hrws3in3d" path="res://assets/main_character/Idle (32x32).png" id="2_ursgr"]
 [ext_resource type="Texture2D" uid="uid://c8m8ggm6yoqfp" path="res://assets/main_character/Jump (32x32).png" id="3_62xb8"]
 [ext_resource type="Texture2D" uid="uid://triieei3po4s" path="res://assets/main_character/Hit (32x32).png" id="3_l7kbi"]
 [ext_resource type="Texture2D" uid="uid://bjlxefckn2gyu" path="res://assets/main_character/Run (32x32).png" id="4_mckqw"]
+[ext_resource type="PackedScene" uid="uid://dobblqi7oigj3" path="res://scenes/hud.tscn" id="6_ns82i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfia7"]
 atlas = ExtResource("2_ursgr")
@@ -262,3 +263,5 @@ shape = SubResource("RectangleShape2D_oeh25")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 20.0
 drag_horizontal_enabled = true
+
+[node name="Hud" parent="." instance=ExtResource("6_ns82i")]

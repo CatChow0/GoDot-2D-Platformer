@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckvr2rplh3oqb"]
+[gd_scene load_steps=10 format=3 uid="uid://ckvr2rplh3oqb"]
 
 [ext_resource type="Script" path="res://scenes/level/level1.gd" id="1_238pa"]
 [ext_resource type="Texture2D" uid="uid://lxbmsrgtqe3y" path="res://Green.png" id="2_vkdwv"]
 [ext_resource type="Texture2D" uid="uid://dm0kxvwxmnyk7" path="res://Terrain (16x16).png" id="3_uqhnr"]
 [ext_resource type="PackedScene" uid="uid://c4qk2h31p8h4s" path="res://scenes/main_character.tscn" id="4_g4qr8"]
-[ext_resource type="PackedScene" uid="uid://byepv46pl1spt" path="res://scenes/spikes.tscn" id="5_5mnsg"]
 [ext_resource type="PackedScene" uid="uid://brbmhwef15enu" path="res://scenes/end_level_tp.tscn" id="6_ngbx0"]
+[ext_resource type="PackedScene" uid="uid://byepv46pl1spt" path="res://scenes/Enemy/spikes.tscn" id="7_ka5iq"]
+[ext_resource type="PackedScene" uid="uid://dh66c57r6xtro" path="res://scenes/trampoline.tscn" id="7_pq6rq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3570p"]
 texture = ExtResource("3_uqhnr")
@@ -158,12 +159,15 @@ texture = ExtResource("3_uqhnr")
 17:2/0 = 0
 17:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:2/0/physics_layer_0/angular_velocity = 0.0
+17:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:2/0 = 0
 18:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:2/0/physics_layer_0/angular_velocity = 0.0
+18:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:2/0 = 0
 19:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:2/0/physics_layer_0/angular_velocity = 0.0
+19:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
@@ -483,15 +487,42 @@ texture_filter = 1
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_bhgb2")
 format = 2
-layer_0/tile_data = PackedInt32Array(917503, 393216, 0, 851992, 524288, 0, 851968, 458752, 0, 851969, 458752, 0, 851970, 458752, 0, 851971, 458752, 0, 851972, 458752, 0, 851973, 458752, 0, 851974, 458752, 0, 851975, 458752, 0, 851976, 458752, 0, 851977, 458752, 0, 851978, 458752, 0, 851979, 458752, 0, 851980, 458752, 0, 851981, 458752, 0, 851982, 458752, 0, 851983, 458752, 0, 851984, 458752, 0, 851985, 458752, 0, 851986, 458752, 0, 851987, 458752, 0, 851989, 458752, 0, 851990, 458752, 0, 851991, 458752, 0, 851988, 458752, 0, 65535, 524288, 1, 131071, 524288, 1, 196607, 524288, 1, 262143, 524288, 1, 327679, 524288, 1, 393215, 524288, 1, 458751, 524288, 1, 524287, 524288, 1, 589823, 524288, 1, 655359, 524288, 1, 720895, 524288, 1, 786431, 524288, 1, 851967, 524288, 1, -65536, 458752, 2, -65535, 458752, 2, -65534, 458752, 2, -65533, 458752, 2, -65532, 458752, 2, -65531, 458752, 2, -65530, 458752, 2, -65529, 458752, 2, -65528, 458752, 2, -65527, 458752, 2, -65526, 458752, 2, -65525, 458752, 2, -65524, 458752, 2, -65523, 458752, 2, -65522, 458752, 2, -65521, 458752, 2, -65520, 458752, 2, -65519, 458752, 2, -65518, 458752, 2, -65517, 458752, 2, -65516, 458752, 2, -65515, 458752, 2, -65514, 458752, 2, -65513, 458752, 2, -1, 589824, 0, -65512, 655360, 0, 24, 393216, 1, 65560, 393216, 1, 131096, 393216, 1, 196632, 393216, 1, 262168, 393216, 1, 327704, 393216, 1, 393240, 393216, 1, 458776, 393216, 1, 524312, 393216, 1, 589848, 393216, 1, 655384, 393216, 1, 720920, 393216, 1, 786456, 393216, 1, 262144, 458752, 0, 262145, 458752, 0, 262146, 524288, 0, 327682, 524288, 2, 327681, 458752, 2, 327680, 458752, 2)
+layer_0/tile_data = PackedInt32Array(917503, 393216, 0, 851992, 524288, 0, 851968, 458752, 0, 851969, 458752, 0, 851970, 458752, 0, 851971, 458752, 0, 851972, 458752, 0, 851973, 458752, 0, 851974, 458752, 0, 851975, 458752, 0, 851976, 458752, 0, 851977, 458752, 0, 851978, 458752, 0, 851979, 458752, 0, 851980, 458752, 0, 851981, 458752, 0, 851982, 458752, 0, 851983, 458752, 0, 851984, 458752, 0, 851985, 458752, 0, 851986, 458752, 0, 851987, 458752, 0, 851989, 458752, 0, 851990, 458752, 0, 851991, 458752, 0, 851988, 458752, 0, 65535, 524288, 1, 131071, 524288, 1, 196607, 524288, 1, 262143, 524288, 1, 327679, 524288, 1, 393215, 524288, 1, 458751, 524288, 1, 524287, 524288, 1, 589823, 524288, 1, 655359, 524288, 1, 720895, 524288, 1, 786431, 524288, 1, 851967, 524288, 1, 24, 393216, 1, 65560, 393216, 1, 131096, 393216, 1, 196632, 393216, 1, 262168, 393216, 1, 327704, 393216, 1, 393240, 393216, 1, 458776, 393216, 1, 524312, 393216, 1, 589848, 393216, 1, 655384, 393216, 1, 720920, 393216, 1, 786456, 393216, 1, 262144, 458752, 0, 262145, 458752, 0, 262146, 524288, 0, 327682, 524288, 2, 327681, 458752, 2, 327680, 458752, 2, 524299, 1114112, 1, 524300, 1179648, 1, 524301, 1245184, 1, 524303, 393216, 0, 524304, 524288, 0, 589839, 393216, 2, 589840, 524288, 2, 524306, 1114112, 1, 524307, 1179648, 1, 524308, 1245184, 1, 524310, 393216, 0, 524311, 458752, 0, 589846, 393216, 1, 720918, 393216, 1, 786454, 393216, 1, 589847, 458752, 1, 720919, 458752, 1, 786455, 458752, 1, 655382, 393216, 1, 655383, 458752, 1, 196620, 1245184, 2, 196618, 1114112, 2, 196619, 1179648, 2, 196617, 524288, 0, 262153, 524288, 2, 196616, 458752, 0, 196615, 458752, 0, 262152, 458752, 2, 262150, 393216, 2, 196614, 393216, 0, 262151, 458752, 2, 131085, 393216, 0, 131086, 524288, 0, 196621, 393216, 2, 196622, 524288, 2, 131092, 524288, 0, 131090, 393216, 0, 131091, 458752, 0, 196626, 393216, 2, 196627, 458752, 2, 196628, 524288, 2, -131048, 655360, 0, -65537, 589824, 0, -1, 524288, 1, -65512, 393216, 1, -131072, 458752, 2, -131071, 458752, 2, -131070, 458752, 2, -131069, 458752, 2, -131068, 458752, 2, -131067, 458752, 2, -131066, 458752, 2, -131065, 458752, 2, -131064, 458752, 2, -131063, 458752, 2, -131062, 458752, 2, -131061, 458752, 2, -131060, 458752, 2, -131059, 458752, 2, -131058, 458752, 2, -131057, 458752, 2, -131056, 458752, 2, -131055, 458752, 2, -131054, 458752, 2, -131053, 458752, 2, -131052, 458752, 2, -131051, 458752, 2, -131050, 458752, 2, -131049, 458752, 2)
 
 [node name="player" parent="." instance=ExtResource("4_g4qr8")]
 z_index = 10
 position = Vector2(79, 580)
 scale = Vector2(3, 3)
 
-[node name="Spikes" parent="." instance=ExtResource("5_5mnsg")]
-position = Vector2(231, 600)
-
 [node name="End Level Tp" parent="." instance=ExtResource("6_ngbx0")]
 position = Vector2(76, 117)
+
+[node name="Trampoline" parent="." instance=ExtResource("7_pq6rq")]
+position = Vector2(470, 587)
+
+[node name="Trampoline2" parent="." instance=ExtResource("7_pq6rq")]
+position = Vector2(1108, 345)
+
+[node name="Spikes" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(218, 600)
+
+[node name="Spikes2" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(746, 360)
+
+[node name="Spikes3" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(408, 120)
+
+[node name="Spikes4" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(549, 600)
+
+[node name="Spikes5" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(645, 600)
+
+[node name="Spikes6" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(741, 600)
+
+[node name="Spikes7" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(837, 600)
+
+[node name="Spikes8" parent="." instance=ExtResource("7_ka5iq")]
+position = Vector2(934, 600)

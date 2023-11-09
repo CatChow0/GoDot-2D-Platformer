@@ -5,6 +5,9 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var camera = $Camera2D
+@onready var hud = $Hud
+
+var Dead_Count = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -45,3 +48,4 @@ func _physics_process(delta):
 #Respawn le player a chaque mort sans recharger la scene
 func hurt() :
 	global_position = spawn_position
+	hud.Dead_Count_update()
