@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl2tsmj1ndii8"]
+[gd_scene load_steps=4 format=3 uid="uid://bl2tsmj1ndii8"]
 
 [ext_resource type="Texture2D" uid="uid://lxbmsrgtqe3y" path="res://Green.png" id="1_fmvvd"]
 [ext_resource type="Script" path="res://scenes/ButtonPlay.gd" id="2_xhhf5"]
+[ext_resource type="Script" path="res://ButtonExit.gd" id="3_dc6aj"]
 
 [node name="MainMenu" type="Node"]
 
@@ -35,6 +36,7 @@ text = "Option"
 [node name="ButtonExit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quitter"
+script = ExtResource("3_dc6aj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 5
@@ -55,3 +57,4 @@ scroll_active = false
 autowrap_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/ButtonPlay" to="VBoxContainer/ButtonPlay" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="VBoxContainer/ButtonExit" method="_on_pressed"]
