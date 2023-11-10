@@ -1,5 +1,4 @@
 extends Button
 
-
-
-#func _on_pressed():
+func _on_pressed():
+	get_tree().quit()

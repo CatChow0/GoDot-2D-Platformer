@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_vsw4q"]
 
 [node name="Pause_Menu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_vsw4q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -55,3 +56,6 @@ text = "Option"
 [node name="ButtonExit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/ButtonResume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
