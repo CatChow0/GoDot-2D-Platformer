@@ -268,3 +268,4 @@ drag_horizontal_enabled = true
 [node name="Hud" parent="." instance=ExtResource("6_ns82i")]
 
 [node name="Pause_Menu" parent="." instance=ExtResource("7_kpduw")]
+visible = false

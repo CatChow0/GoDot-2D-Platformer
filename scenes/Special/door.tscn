@@ -116,7 +116,7 @@ _data = {
 "RESET": SubResource("Animation_mbnjd")
 }
 
-[node name="Door" type="Area2D"]
+[node name="Door" type="StaticBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_bgl5p")
 
