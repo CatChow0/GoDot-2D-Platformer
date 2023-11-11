@@ -8,7 +8,8 @@ const JUMP_VELOCITY = -700.0
 @onready var hud = $Hud
 @onready var player = $"."
 @onready var worldNode = player.get_parent()
-@onready var pressurePlateNode = worldNode.get_node("Pressure_Plate")
+var pressurePlateNode
+var skip
 
 var Dead_Count = 0
 
@@ -19,6 +20,8 @@ var spawn_position = Vector2(0,0)
 
 func _ready():
 	spawn_position = global_position
+	pressurePlateNode = worldNode.get_node("Pressure_Plate")
+	
 
 func _physics_process(delta):
 	if (velocity.x > 1 || velocity.x < -1):
@@ -52,5 +55,6 @@ func _physics_process(delta):
 func hurt() :
 	global_position = spawn_position
 	hud.Dead_Count_update()
-	pressurePlateNode.on_player_dead_plate()
+	if pressurePlateNode != null:
+		pressurePlateNode.on_player_dead_plate()
 	
