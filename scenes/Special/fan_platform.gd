@@ -4,11 +4,11 @@ class_name Fan_platform
 @onready var cooldown = $Cooldown
 @onready var animation_player = $Area2D/AnimationPlayer
 @onready var fan_platform = $"."
-var default
+var default_position = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	default = fan_platform
+	default_position = global_position
 	pass # Replace with function body.
 
 
@@ -24,9 +24,14 @@ func _on_area_2d_body_entered(body):
 
 func _on_delay_timeout():
 	animation_player.play("Turn_Off")
-	cooldown.start()
 
 
 func _on_cooldown_timeout():
-	fan_platform = default
+	global_position = default_position
+	animation_player.play("Turn_On")
 
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Turn_Off" :
+		cooldown.start()

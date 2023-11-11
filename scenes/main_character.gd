@@ -7,10 +7,10 @@ const JUMP_VELOCITY = -700.0
 @onready var camera = $Camera2D
 @onready var hud = $Hud
 @onready var player = $"."
+@onready var worldNode = player.get_parent()
+@onready var pressurePlateNode = worldNode.get_node("Pressure_Plate")
 
 var Dead_Count = 0
-var worldNode
-var fan = []
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -52,4 +52,5 @@ func _physics_process(delta):
 func hurt() :
 	global_position = spawn_position
 	hud.Dead_Count_update()
-	fan.onPlayerDead()
+	pressurePlateNode.on_player_dead_plate()
+	
