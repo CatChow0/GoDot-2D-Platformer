@@ -7,9 +7,12 @@ const JUMP_VELOCITY = -700.0
 @onready var camera = $Camera2D
 @onready var hud = $Hud
 @onready var player = $"."
+@onready var jump_sound = $JumpSound
+
 @onready var worldNode = player.get_parent()
 var pressurePlateNode
 var skip
+var playJumpSound = false
 
 var Dead_Count = 0
 
@@ -33,7 +36,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		animated_sprite_2d.animation = "jumping"
-
+		if playJumpSound == true:
+			jump_sound.play()
+		playJumpSound = false
+	else :
+		playJumpSound = true
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
