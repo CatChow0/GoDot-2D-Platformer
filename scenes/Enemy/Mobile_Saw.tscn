@@ -70,17 +70,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6htqt"]
 radius = 20.0
 
-[node name="Mobile_Saw" type="Area2D"]
-scale = Vector2(2, 2)
+[node name="Mobile_Saw" type="CharacterBody2D"]
 script = ExtResource("1_3avob")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_u60vo")
 autoplay = "default"
-frame_progress = 0.114944
+frame = 4
+frame_progress = 0.916883
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_6htqt")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

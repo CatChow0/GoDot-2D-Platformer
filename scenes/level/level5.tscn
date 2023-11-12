@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkq6fu1crrxse"]
+[gd_scene load_steps=12 format=3 uid="uid://dkq6fu1crrxse"]
 
 [ext_resource type="Script" path="res://scenes/level/level1.gd" id="1_g7336"]
 [ext_resource type="Texture2D" uid="uid://lxbmsrgtqe3y" path="res://Green.png" id="2_6go17"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c4qk2h31p8h4s" path="res://scenes/main_character.tscn" id="4_65v6e"]
 [ext_resource type="PackedScene" uid="uid://brbmhwef15enu" path="res://scenes/end_level_tp.tscn" id="5_4j7xd"]
 [ext_resource type="PackedScene" uid="uid://bc1aldpe706dg" path="res://scenes/Enemy/gros_caillou.tscn" id="6_ylpjq"]
+[ext_resource type="PackedScene" uid="uid://dyrwwqelckyr1" path="res://scenes/Enemy/Mobile_Saw.tscn" id="7_ftvvg"]
+[ext_resource type="PackedScene" uid="uid://tvdb10i8y3gv" path="res://scenes/Special/fan_platform.tscn" id="7_uplea"]
+[ext_resource type="PackedScene" uid="uid://byepv46pl1spt" path="res://scenes/Enemy/spikes.tscn" id="9_7qgd0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3570p"]
 texture = ExtResource("3_t7gg1")
@@ -491,7 +494,7 @@ layer_0/tile_data = PackedInt32Array(917503, 589824, 1, 851992, 458752, 0, 85196
 
 [node name="player" parent="." instance=ExtResource("4_65v6e")]
 z_index = 10
-position = Vector2(88, 240)
+position = Vector2(992, 568)
 scale = Vector2(3, 3)
 
 [node name="End Level Tp" parent="." instance=ExtResource("5_4j7xd")]
@@ -500,3 +503,25 @@ rotation = 3.14159
 
 [node name="GrosCaillou" parent="." instance=ExtResource("6_ylpjq")]
 position = Vector2(208, 576)
+
+[node name="Fan_Platform" parent="." instance=ExtResource("7_uplea")]
+position = Vector2(488, 288)
+
+[node name="Mobile_Saw" parent="." instance=ExtResource("7_ftvvg")]
+position = Vector2(664, 296)
+rotation = 1.5708
+
+[node name="Fan_Platform2" parent="." instance=ExtResource("7_uplea")]
+position = Vector2(728, 288)
+
+[node name="Spikes" parent="." instance=ExtResource("9_7qgd0")]
+position = Vector2(328, 576)
+scale = Vector2(6, 6)
+
+[node name="Spikes2" parent="." instance=ExtResource("9_7qgd0")]
+position = Vector2(544, 576)
+scale = Vector2(6, 6)
+
+[node name="Spikes3" parent="." instance=ExtResource("9_7qgd0")]
+position = Vector2(760, 576)
+scale = Vector2(6, 6)
