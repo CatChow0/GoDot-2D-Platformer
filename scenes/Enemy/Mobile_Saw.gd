@@ -9,7 +9,6 @@ func _ready():
 	
 	
 func _process(delta):
-	print(global_rotation_degrees)
 	
 	if (global_rotation_degrees < 91 && global_rotation_degrees > 89) || (global_rotation_degrees < 271 && global_rotation_degrees > 270):
 		if global_position.y <= spawn_position.y + 200:
