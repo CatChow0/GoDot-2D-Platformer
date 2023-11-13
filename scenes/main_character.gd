@@ -3,15 +3,14 @@ class_name Player
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
 @onready var camera = $Camera2D
 @onready var hud = $Hud
 @onready var player = $"."
 @onready var jump_sound = $JumpSound
-
+@onready var sprite_2d = $Sprite2D
 @onready var worldNode = player.get_parent()
 var pressurePlateNode
-var skip
 var playJumpSound = false
 
 var Dead_Count = 0
@@ -28,14 +27,14 @@ func _ready():
 
 func _physics_process(delta):
 	if (velocity.x > 1 || velocity.x < -1):
-		animated_sprite_2d.animation = "running"
+		animation_player.play("running")
 	else:
-		animated_sprite_2d.animation = "default"
+		animation_player.play("idle")
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		animated_sprite_2d.animation = "jumping"
+		animation_player.play("jump")
 		if playJumpSound == true:
 			jump_sound.play()
 		playJumpSound = false
@@ -56,7 +55,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	var isLeft = velocity.x < 0
-	animated_sprite_2d.flip_h = isLeft
+	sprite_2d.flip_h = isLeft
 	
 #Respawn le player a chaque mort sans recharger la scene
 func hurt() :
@@ -64,4 +63,6 @@ func hurt() :
 	hud.Dead_Count_update()
 	if pressurePlateNode != null:
 		pressurePlateNode.on_player_dead_plate()
+		
+		
 	

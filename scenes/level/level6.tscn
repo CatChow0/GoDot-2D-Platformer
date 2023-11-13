@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc4nurfwatiwf"]
+[gd_scene load_steps=9 format=3 uid="uid://cc4nurfwatiwf"]
 
 [ext_resource type="Script" path="res://scenes/level/level1.gd" id="1_64wem"]
 [ext_resource type="Texture2D" uid="uid://lxbmsrgtqe3y" path="res://Green.png" id="2_hdoea"]
 [ext_resource type="Texture2D" uid="uid://dm0kxvwxmnyk7" path="res://Terrain (16x16).png" id="3_q613t"]
 [ext_resource type="PackedScene" uid="uid://c4qk2h31p8h4s" path="res://scenes/main_character.tscn" id="4_vd8oc"]
 [ext_resource type="PackedScene" uid="uid://brbmhwef15enu" path="res://scenes/end_level_tp.tscn" id="5_fo6gt"]
+[ext_resource type="PackedScene" uid="uid://fp5cvos1akfr" path="res://scenes/Special/fan.tscn" id="6_3ukd3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3570p"]
 texture = ExtResource("3_q613t")
@@ -495,3 +496,6 @@ scale = Vector2(3, 3)
 
 [node name="End Level Tp" parent="." instance=ExtResource("5_fo6gt")]
 position = Vector2(40, 544)
+
+[node name="Fan" parent="." instance=ExtResource("6_3ukd3")]
+position = Vector2(184, 613)
