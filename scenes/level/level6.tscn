@@ -498,4 +498,8 @@ scale = Vector2(3, 3)
 position = Vector2(40, 544)
 
 [node name="Fan" parent="." instance=ExtResource("6_3ukd3")]
-position = Vector2(184, 613)
+position = Vector2(265, 613)
+
+[node name="Fan2" parent="." instance=ExtResource("6_3ukd3")]
+position = Vector2(177, 161)
+rotation = 1.5708

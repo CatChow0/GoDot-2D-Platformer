@@ -19,9 +19,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if state == true:
+	if state == true && (global_rotation_degrees < 91 && global_rotation_degrees > 89):
+		player.velocity.x += Fan_Speed*2
+	elif state == true && (global_rotation_degrees < 271 && global_rotation_degrees > 269):
+		player.velocity.x -= Fan_Speed*2
+	elif state == true && (global_rotation_degrees < 181 && global_rotation_degrees > 179):
+		player.velocity.y += Fan_Speed
+	elif  state == true && (global_rotation_degrees < 1 && global_rotation_degrees >= 0):
 		player.velocity.y -= Fan_Speed
-
 
 func _on_cooldown_timeout():
 	animation_player.play("On")
