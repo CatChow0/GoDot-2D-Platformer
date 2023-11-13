@@ -42,7 +42,7 @@ func _process(delta):
 	elif moveTo == "Down":
 		velocity.y += speed * delta
 	elif moveTo == "idle" :
-		if (player.global_position.x + 66) >= gros_caillou.global_position.x && player.global_position.x <= (gros_caillou.global_position.x + (sprite_2d.texture.get_width()/2)):
+		if (player.global_position.x + 66) >= gros_caillou.global_position.x && player.global_position.x <= (gros_caillou.global_position.x + (sprite_2d.texture.get_width())):
 			if player.global_position.y >= gros_caillou.global_position.y:
 				moveTo = "Down"
 			elif player.global_position.y <= gros_caillou.global_position.y:

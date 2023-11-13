@@ -3,10 +3,11 @@ extends StaticBody2D
 @onready var cooldown = $Cooldown
 @onready var life_time_delay = $LifeTimeDelay
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var fan = $"."
+@onready var Fan_Speed = fan.get_meta("Fan_Speed") * 1000
 
 var player
 var worldNode
-var Fan_Speed = 50
 var state
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,17 +17,24 @@ func _ready():
 	cooldown.start()
 	collision_shape_2d.disabled = true
 	state = false
+	print(Fan_Speed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if state == true && (global_rotation_degrees < 91 && global_rotation_degrees > 89):
-		player.velocity.x += Fan_Speed*2
-	elif state == true && (global_rotation_degrees < 271 && global_rotation_degrees > 269):
-		player.velocity.x -= Fan_Speed*2
-	elif state == true && (global_rotation_degrees < 181 && global_rotation_degrees > 179):
-		player.velocity.y += Fan_Speed
-	elif  state == true && (global_rotation_degrees < 1 && global_rotation_degrees >= 0):
-		player.velocity.y -= Fan_Speed
+func _process(delta):
+	if state == true:
+		player.velocity = vecteur_angle(global_rotation_degrees) * Fan_Speed * delta
+		print(player.velocity)
+		player.move_and_slide()
+		
+
+func vecteur_angle(angle_degrees):
+	var angle_radiant = deg_to_rad(angle_degrees)
+	var vx = cos(angle_radiant)
+	var vy = sin(angle_radiant)
+	
+	var newVector2 = Vector2(vy,-vx)
+	return newVector2
+	
 
 func _on_cooldown_timeout():
 	animation_player.play("On")

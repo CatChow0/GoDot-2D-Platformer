@@ -138,6 +138,7 @@ _data = {
 [node name="Fan" type="StaticBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_anxlm")
+metadata/Fan_Speed = 20
 
 [node name="Area2D" type="Area2D" parent="."]
 
