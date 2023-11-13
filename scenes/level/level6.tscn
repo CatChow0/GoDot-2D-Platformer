@@ -498,7 +498,7 @@ layer_0/tile_data = PackedInt32Array(917503, 393216, 0, 851992, 524288, 0, 85196
 
 [node name="player" parent="." instance=ExtResource("4_vd8oc")]
 z_index = 10
-position = Vector2(1699, -478)
+position = Vector2(2336, 576)
 scale = Vector2(3, 3)
 
 [node name="End Level Tp" parent="." instance=ExtResource("5_fo6gt")]
@@ -506,6 +506,7 @@ position = Vector2(60, -651)
 
 [node name="Fan" parent="." instance=ExtResource("6_3ukd3")]
 position = Vector2(2211, 613)
+metadata/Fan_Speed = 50
 
 [node name="Fan_Platform" parent="." instance=ExtResource("7_86a74")]
 position = Vector2(2059, 274)
@@ -555,20 +556,36 @@ metadata/Fan_Speed = 80
 [node name="Fan6" parent="." instance=ExtResource("6_3ukd3")]
 position = Vector2(455, -335)
 rotation = -0.785398
+metadata/Fan_Speed = 60
 
 [node name="Fan7" parent="." instance=ExtResource("6_3ukd3")]
-position = Vector2(86, -62)
+position = Vector2(88, -64)
 rotation = 0.785398
+metadata/Fan_Speed = 60
 
 [node name="Fan8" parent="." instance=ExtResource("6_3ukd3")]
 position = Vector2(448, 221)
 rotation = -0.785398
+metadata/Fan_Speed = 60
 
 [node name="Fan9" parent="." instance=ExtResource("6_3ukd3")]
 position = Vector2(90, 513)
 rotation = 0.785398
+metadata/Fan_Speed = 60
 
 [node name="StaticBody2D" parent="." instance=ExtResource("13_2j0ws")]
 z_index = -1
-position = Vector2(81, 527)
+position = Vector2(79, 526)
 rotation = 0.785398
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("13_2j0ws")]
+position = Vector2(461, 232)
+rotation = -0.785398
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("13_2j0ws")]
+position = Vector2(77, -51)
+rotation = 0.785398
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("13_2j0ws")]
+position = Vector2(468, -325)
+rotation = -0.785398
