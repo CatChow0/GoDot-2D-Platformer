@@ -221,6 +221,7 @@ size = Vector2(32, 5.16667)
 [node name="Fan_Platform" type="StaticBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_1fjrh")
+metadata/Cooldown = 5.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -251,7 +252,6 @@ shape = SubResource("RectangleShape2D_nc1pa")
 one_shot = true
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 10.0
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

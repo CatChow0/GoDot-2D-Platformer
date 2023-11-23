@@ -17,13 +17,11 @@ func _ready():
 	cooldown.start()
 	collision_shape_2d.disabled = true
 	state = false
-	print(Fan_Speed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if state == true:
 		player.velocity = vecteur_angle(global_rotation_degrees) * Fan_Speed * delta
-		print(player.velocity)
 		player.move_and_slide()
 		
 
