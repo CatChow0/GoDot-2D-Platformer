@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fp5cvos1akfr"]
+[gd_scene load_steps=10 format=3 uid="uid://fp5cvos1akfr"]
 
 [ext_resource type="Texture2D" uid="uid://bgy6v5aafv3ov" path="res://assets/Special/Fan/Off.png" id="1_5cw2h"]
 [ext_resource type="Script" path="res://scenes/Special/fan.gd" id="1_anxlm"]
@@ -135,6 +135,9 @@ _data = {
 "RESET": SubResource("Animation_wn753")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6gp5"]
+size = Vector2(23, 8)
+
 [node name="Fan" type="StaticBody2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_anxlm")
@@ -162,6 +165,11 @@ one_shot = true
 [node name="LifeTimeDelay" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_q6gp5")
+one_way_collision = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
